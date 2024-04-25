@@ -254,6 +254,30 @@
             }));
         }
     }), 0);
+    document.addEventListener("DOMContentLoaded", (function() {
+        var copyButtons = document.querySelectorAll("[data-copy]");
+        copyButtons.forEach((function(button) {
+            button.addEventListener("click", (function() {
+                var targetId = button.getAttribute("data-copy");
+                var targetElement = document.getElementById(targetId);
+                var textToCopy = targetElement.textContent;
+                copyToClipboard(textToCopy);
+                button.classList.add("success");
+                setTimeout((function() {
+                    button.classList.remove("success");
+                }), 2e3);
+            }));
+        }));
+        function copyToClipboard(text) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        }
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
