@@ -278,7 +278,6 @@
             document.body.removeChild(textarea);
         }
     }));
-    window["FLS"] = true;
     isWebp();
     menuInit();
     headerScroll();
