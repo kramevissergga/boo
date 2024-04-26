@@ -290,6 +290,90 @@ body {
   z-index: 3;
   text-transform: uppercase
 }
+.footer {
+  border-top: .5rem solid #000;
+  background: linear-gradient(270deg,#280808 0,#8e1d1c 28.05%,#280808 100%);
+  box-shadow: 0 .5625rem 0 0 #000
+}
+.footer__header {
+  display: flex;
+  gap: 2.375rem
+}
+.footer__header:not(:last-child) {
+  margin-bottom: 3.75rem
+}
+.footer__title {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-family: Ahsing;
+  font-weight: 400;
+  line-height: 1
+}
+.footer__title::before {
+  content: "";
+  position: absolute;
+  top: -13%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scale .5s forwards ease-out .6s;
+  animation: scale .5s forwards ease-out .6s;
+  width: 26.556777%;
+  aspect-ratio: 145/135;
+  right: -2.025641%;
+  background: url(../img/modules/common/bone.svg) 0 0/cover no-repeat
+}
+.footer__copy,
+.footer__text {
+  color: hsla(0,0%,100%,.2);
+  font-family: Kanit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4
+}
+.footer__copy p:not(:last-child),
+.footer__text p:not(:last-child) {
+  margin-bottom: .625rem
+}
+.footer__contacts {
+  border-bottom: solid .125rem rgba(255,255,255,.2)
+}
+.footer__contacts:not(:last-child) {
+  margin-bottom: 2rem
+}
+.footer__copy {
+  font-size: 1.25rem
+}
+.footer__image {
+  display: none
+}
+.contacts-footer__items {
+  display: flex;
+  gap: .9375rem;
+  flex-wrap: wrap
+}
+.contacts-footer__link {
+  border: #000 .3125rem solid;
+  box-shadow: .125rem .25rem 0 #000;
+  width: 4.625rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  flex-shrink: 0;
+  padding: .125rem;
+  background-color: #fff;
+  transition: all .3s
+}
+.contacts-footer__link:focus {
+  box-shadow: 0 0 0 #000;
+  -webkit-transform: translate(.125rem,.25rem);
+  transform: translate(.125rem,.25rem)
+}
+.contacts-footer__image {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain
+}
 .hero {
   position: relative
 }
@@ -330,7 +414,7 @@ body {
   width: 26.556777%;
   aspect-ratio: 145/135;
   right: -2.025641%;
-  background: url(../img/modules/hero/bone.svg) 0 0/cover no-repeat
+  background: url(../img/modules/common/bone.svg) 0 0/cover no-repeat
 }
 .hero__text {
   color: #fff;
@@ -392,7 +476,7 @@ body {
   aspect-ratio: 713/750
 }
 .no-webp .hero__image::before {
-  background: url(../img/modules/hero/puppy-background.png) 0 0/cover no-repeat
+  background: url(../img/modules/common/puppy-background.png) 0 0/cover no-repeat
 }
 .hero__image::before {
   content: "";
@@ -923,7 +1007,22 @@ body {
   transform: rotate(4deg)
 }
 .item-tokenomics {
+  position: relative;
   padding-bottom: .483125rem
+}
+.item-tokenomics::before {
+  content: "";
+  width: 41.415929%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #e84341;
+  -webkit-filter: blur(150px);
+  filter: blur(150px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(23.504274%,41.025641%);
+  transform: translate(23.504274%,41.025641%)
 }
 .item-tokenomics__wrapper {
   position: relative;
@@ -1237,6 +1336,10 @@ body {
   }
 }
 @media (min-width:61.99875em) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr)
+  }
   .tokenomics__items {
     grid-template-columns: repeat(2,1fr)
   }
@@ -1290,6 +1393,18 @@ body {
   }
   .header__image {
     height: 6.125rem
+  }
+  .footer {
+    padding-top: 6.625rem
+  }
+  .footer {
+    padding-bottom: 4.4375rem
+  }
+  .footer__title {
+    font-size: 6.875rem
+  }
+  .footer__contacts {
+    padding-bottom: 2.6875rem
   }
   .hero__body {
     gap: 2.8125rem
@@ -1541,6 +1656,18 @@ body {
     -moz-column-gap: .9375rem;
     column-gap: .9375rem
   }
+  .footer {
+    padding-top: 2.25rem
+  }
+  .footer {
+    padding-bottom: 2.25rem
+  }
+  .footer__title {
+    font-size: 3.75rem
+  }
+  .footer__contacts {
+    padding-bottom: 1.25rem
+  }
   .hero__body {
     gap: 1.25rem
   }
@@ -1692,6 +1819,15 @@ body {
   }
 }
 @media (max-width:47.99875em) {
+  .footer__header {
+    flex-wrap: wrap
+  }
+  .footer__copy {
+    text-align: center
+  }
+  .contacts-footer__items {
+    justify-content: center
+  }
   .hero__contacts {
     margin-top: -3.125rem
   }
@@ -1805,6 +1941,46 @@ body {
       -webkit-column-gap: calc(.9375rem + 3.0625 * (100vw - 20rem)/ 59.3125);
       -moz-column-gap: calc(.9375rem + 3.0625 * (100vw - 20rem)/ 59.3125);
       column-gap: calc(.9375rem + 3.0625 * (100vw - 20rem)/ 59.3125)
+    }
+  }
+  @supports (padding-top:clamp(2.25rem ,0.7747629083rem + 7.3761854584vw ,6.625rem)) {
+    .footer {
+      padding-top: clamp(2.25rem ,.7747629083rem + 7.3761854584vw ,6.625rem)
+    }
+  }
+  @supports not (padding-top:clamp(2.25rem ,0.7747629083rem + 7.3761854584vw ,6.625rem)) {
+    .footer {
+      padding-top: calc(2.25rem + 4.375 * (100vw - 20rem)/ 59.3125)
+    }
+  }
+  @supports (padding-bottom:clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)) {
+    .footer {
+      padding-bottom: clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)
+    }
+  }
+  @supports not (padding-bottom:clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)) {
+    .footer {
+      padding-bottom: calc(2.25rem + 2.1875 * (100vw - 20rem)/ 59.3125)
+    }
+  }
+  @supports (font-size:clamp(3.75rem ,2.6962592202rem + 5.2687038988vw ,6.875rem)) {
+    .footer__title {
+      font-size: clamp(3.75rem ,2.6962592202rem + 5.2687038988vw ,6.875rem)
+    }
+  }
+  @supports not (font-size:clamp(3.75rem ,2.6962592202rem + 5.2687038988vw ,6.875rem)) {
+    .footer__title {
+      font-size: calc(3.75rem + 3.125 * (100vw - 20rem)/ 59.3125)
+    }
+  }
+  @supports (padding-bottom:clamp(1.25rem ,0.7652792413rem + 2.4236037935vw ,2.6875rem)) {
+    .footer__contacts {
+      padding-bottom: clamp(1.25rem ,.7652792413rem + 2.4236037935vw ,2.6875rem)
+    }
+  }
+  @supports not (padding-bottom:clamp(1.25rem ,0.7652792413rem + 2.4236037935vw ,2.6875rem)) {
+    .footer__contacts {
+      padding-bottom: calc(1.25rem + 1.4375 * (100vw - 20rem)/ 59.3125)
     }
   }
   @supports (gap:clamp(1.25rem ,0.7231296101rem + 2.6343519494vw ,2.8125rem)) {
@@ -2280,6 +2456,11 @@ body {
   .copy-button:hover svg path {
     fill: #e84341
   }
+  .contacts-footer__link:hover {
+    box-shadow: 0 0 0 #000;
+    -webkit-transform: translate(.125rem,.25rem);
+    transform: translate(.125rem,.25rem)
+  }
   .hero__link:hover {
     box-shadow: -.5rem -.6875rem .25rem 0 rgba(0,0,0,.45) inset,0 0 0 0 #000;
     top: .3885rem;
@@ -2306,7 +2487,7 @@ body {
   }
 }
 .webp .hero__image::before {
-  background: url(../img/modules/hero/puppy-background.webp) 0 0/cover no-repeat
+  background: url(../img/modules/common/puppy-background.webp) 0 0/cover no-repeat
 }
 .webp .about__header::before {
   background: url(../img/modules/about/bone.webp) no-repeat center/contain
