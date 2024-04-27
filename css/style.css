@@ -345,7 +345,47 @@ body {
   font-size: 1.25rem
 }
 .footer__image {
-  display: none
+  position: absolute;
+  height: 108.610568%;
+  bottom: 0;
+  right: 0;
+  aspect-ratio: 536/555
+}
+.footer__image img {
+  position: relative;
+  z-index: 3
+}
+.no-webp .footer__image::before {
+  background: url(../img/modules/common/puppy-background.png) 0 0/cover no-repeat
+}
+.footer__image::before {
+  content: "";
+  position: absolute;
+  top: 55%;
+  width: 130.58906%;
+  left: 45%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  -webkit-animation: spin-puppy-background 60s infinite linear;
+  animation: spin-puppy-background 60s infinite linear;
+  z-index: 2
+}
+.footer__image::after {
+  content: "";
+  position: absolute;
+  top: 6.666667%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  opacity: .5;
+  background: conic-gradient(from 187deg at 50% 50%,#d19b72 51.9633632898deg,#ffd8a7 121.3066899776deg,#f6c6af 191.9081711769deg,#ec7d3b 264.1014790535deg,#d39155 321.6266226768deg);
+  -webkit-filter: blur(250px);
+  filter: blur(250px)
 }
 .contacts-footer__items {
   display: flex;
@@ -1337,6 +1377,7 @@ body {
 }
 @media (min-width:61.99875em) {
   .footer__container {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2,1fr)
   }
@@ -1394,10 +1435,10 @@ body {
   .header__image {
     height: 6.125rem
   }
-  .footer {
+  .footer__container {
     padding-top: 6.625rem
   }
-  .footer {
+  .footer__container {
     padding-bottom: 4.4375rem
   }
   .footer__title {
@@ -1656,10 +1697,10 @@ body {
     -moz-column-gap: .9375rem;
     column-gap: .9375rem
   }
-  .footer {
+  .footer__container {
     padding-top: 2.25rem
   }
-  .footer {
+  .footer__container {
     padding-bottom: 2.25rem
   }
   .footer__title {
@@ -1801,6 +1842,9 @@ body {
   }
 }
 @media (max-width:61.99875em) {
+  .footer__image {
+    display: none
+  }
   .hero__body:not(:last-child) {
     margin-bottom: 1.25rem
   }
@@ -1944,22 +1988,22 @@ body {
     }
   }
   @supports (padding-top:clamp(2.25rem ,0.7747629083rem + 7.3761854584vw ,6.625rem)) {
-    .footer {
+    .footer__container {
       padding-top: clamp(2.25rem ,.7747629083rem + 7.3761854584vw ,6.625rem)
     }
   }
   @supports not (padding-top:clamp(2.25rem ,0.7747629083rem + 7.3761854584vw ,6.625rem)) {
-    .footer {
+    .footer__container {
       padding-top: calc(2.25rem + 4.375 * (100vw - 20rem)/ 59.3125)
     }
   }
   @supports (padding-bottom:clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)) {
-    .footer {
+    .footer__container {
       padding-bottom: clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)
     }
   }
   @supports not (padding-bottom:clamp(2.25rem ,1.5123814542rem + 3.6880927292vw ,4.4375rem)) {
-    .footer {
+    .footer__container {
       padding-bottom: calc(2.25rem + 2.1875 * (100vw - 20rem)/ 59.3125)
     }
   }
@@ -2485,6 +2529,9 @@ body {
     -webkit-transform: rotate(40deg) translate(20%,-20%);
     transform: rotate(40deg) translate(20%,-20%)
   }
+}
+.webp .footer__image::before {
+  background: url(../img/modules/common/puppy-background.webp) 0 0/cover no-repeat
 }
 .webp .hero__image::before {
   background: url(../img/modules/common/puppy-background.webp) 0 0/cover no-repeat
